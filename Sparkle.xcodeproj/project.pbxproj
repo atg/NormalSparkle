@@ -114,8 +114,8 @@
 		61F83F720DBFE140006FDD30 /* SUBasicUpdateDriver.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F83F700DBFE137006FDD30 /* SUBasicUpdateDriver.m */; };
 		61F83F740DBFE141006FDD30 /* SUBasicUpdateDriver.h in Headers */ = {isa = PBXBuildFile; fileRef = 61F83F6F0DBFE137006FDD30 /* SUBasicUpdateDriver.h */; settings = {ATTRIBUTES = (); }; };
 		61FA52880E2D9EA400EF58AD /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* Sparkle.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		7599D5C9141E9A8400468C51 /* relaunch in Copy Files */ = {isa = PBXBuildFile; fileRef = DAAEFC960DA571DF0051E0D0 /* relaunch */; };
 		DAAEFD4E0DA572330051E0D0 /* relaunch.m in Sources */ = {isa = PBXBuildFile; fileRef = 613242130CD06CEF00106AA4 /* relaunch.m */; };
-		DAAEFD510DA572550051E0D0 /* relaunch in Resources */ = {isa = PBXBuildFile; fileRef = DAAEFC960DA571DF0051E0D0 /* relaunch */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,12 +147,12 @@
 			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
 			remoteInfo = Sparkle;
 		};
-		DAAEFD4F0DA572460051E0D0 /* PBXContainerItemProxy */ = {
+		7599D5C5141E9A0C00468C51 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = DAAEFC950DA571DF0051E0D0;
-			remoteInfo = relaunch;
+			remoteInfo = "relaunch tool";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -165,6 +165,17 @@
 			files = (
 				61407C390A4099050009F71F /* Sparkle.framework in CopyFiles */,
 			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7599D5C8141E9A7D00468C51 /* Copy Files */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+				7599D5C9141E9A8400468C51 /* relaunch in Copy Files */,
+			);
+			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -796,6 +807,7 @@
 			buildConfigurationList = 1DEB91AD08733DA50010E9CD /* Build configuration list for PBXNativeTarget "Sparkle" */;
 			buildPhases = (
 				8DC2EF500486A6940098B216 /* Headers */,
+				7599D5C8141E9A7D00468C51 /* Copy Files */,
 				8DC2EF520486A6940098B216 /* Resources */,
 				8DC2EF540486A6940098B216 /* Sources */,
 				8DC2EF560486A6940098B216 /* Frameworks */,
@@ -806,7 +818,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				DAAEFD500DA572460051E0D0 /* PBXTargetDependency */,
+				7599D5C6141E9A0C00468C51 /* PBXTargetDependency */,
 			);
 			name = Sparkle;
 			productInstallPath = "$(HOME)/Library/Frameworks";
@@ -913,7 +925,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				61C2680A0E2DB5D000175E6C /* License.txt in Resources */,
-				DAAEFD510DA572550051E0D0 /* relaunch in Resources */,
 				610D5A750A1670A4004AAD9C /* SUStatus.nib in Resources */,
 				61AAE8280A321A7F00D8810D /* Sparkle.strings in Resources */,
 				61AAE8290A321A8000D8810D /* SUAutomaticUpdateAlert.nib in Resources */,
@@ -1101,10 +1112,10 @@
 			target = 8DC2EF4F0486A6940098B216 /* Sparkle */;
 			targetProxy = 61FA528C0E2D9EB200EF58AD /* PBXContainerItemProxy */;
 		};
-		DAAEFD500DA572460051E0D0 /* PBXTargetDependency */ = {
+		7599D5C6141E9A0C00468C51 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = DAAEFC950DA571DF0051E0D0 /* relaunch tool */;
-			targetProxy = DAAEFD4F0DA572460051E0D0 /* PBXContainerItemProxy */;
+			targetProxy = 7599D5C5141E9A0C00468C51 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1232,6 +1243,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FA1941CA0D94A70100DD942E /* ConfigFrameworkDebug.xcconfig */;
 			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				SDKROOT = macosx10.6;
 			};
 			name = Debug;
 		};
@@ -1239,18 +1252,22 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FA1941D50D94A70100DD942E /* ConfigFrameworkRelease.xcconfig */;
 			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				SDKROOT = macosx10.6;
 			};
 			name = Release;
 		};
 		1DEB91B208733DA50010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COPY_PHASE_STRIP = NO;
 			};
 			name = Debug;
 		};
 		1DEB91B308733DA50010E9CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COPY_PHASE_STRIP = NO;
 			};
 			name = Release;
 		};
@@ -1258,6 +1275,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5D06E8F20FD68D21005AE3F6 /* ConfigBinaryDeltaDebug.xcconfig */;
 			buildSettings = {
+				SDKROOT = macosx10.6;
 			};
 			name = Debug;
 		};
@@ -1265,6 +1283,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5D06E8F30FD68D21005AE3F6 /* ConfigBinaryDeltaRelease.xcconfig */;
 			buildSettings = {
+				SDKROOT = macosx10.6;
 			};
 			name = Release;
 		};
@@ -1272,12 +1291,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5D06E8F30FD68D21005AE3F6 /* ConfigBinaryDeltaRelease.xcconfig */;
 			buildSettings = {
+				SDKROOT = macosx10.6;
 			};
 			name = "Release (GC dual-mode; 10.5-only)";
 		};
 		61072EAD0DF263BD008FE88B /* Release (GC dual-mode; 10.5-only) */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COPY_PHASE_STRIP = NO;
 			};
 			name = "Release (GC dual-mode; 10.5-only)";
 		};
@@ -1285,6 +1306,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 61072EB20DF2640C008FE88B /* ConfigFrameworkReleaseGCSupport.xcconfig */;
 			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				SDKROOT = macosx10.6;
 			};
 			name = "Release (GC dual-mode; 10.5-only)";
 		};
@@ -1292,6 +1315,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 615409A8103BA09100125AF1 /* ConfigTestAppReleaseGCSupport.xcconfig */;
 			buildSettings = {
+				SDKROOT = macosx10.6;
 			};
 			name = "Release (GC dual-mode; 10.5-only)";
 		};
@@ -1299,6 +1323,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FA1941D40D94A70100DD942E /* ConfigRelaunchRelease.xcconfig */;
 			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				SDKROOT = macosx10.6;
 			};
 			name = "Release (GC dual-mode; 10.5-only)";
 		};
@@ -1306,6 +1332,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FA302AFD109D13190060F891 /* ConfigUnitTestReleaseGCSupport.xcconfig */;
 			buildSettings = {
+				SDKROOT = macosx10.6;
 			};
 			name = "Release (GC dual-mode; 10.5-only)";
 		};
@@ -1313,6 +1340,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FA3AAF3A1050B273004B3130 /* ConfigUnitTestDebug.xcconfig */;
 			buildSettings = {
+				SDKROOT = macosx10.6;
 			};
 			name = Debug;
 		};
@@ -1320,6 +1348,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FA3AAF391050B273004B3130 /* ConfigUnitTestRelease.xcconfig */;
 			buildSettings = {
+				SDKROOT = macosx10.6;
 			};
 			name = Release;
 		};
@@ -1327,6 +1356,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FA1941CB0D94A70100DD942E /* ConfigTestAppDebug.xcconfig */;
 			buildSettings = {
+				SDKROOT = macosx10.6;
 			};
 			name = Debug;
 		};
@@ -1334,6 +1364,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FA1941D20D94A70100DD942E /* ConfigTestAppRelease.xcconfig */;
 			buildSettings = {
+				SDKROOT = macosx10.6;
 			};
 			name = Release;
 		};
@@ -1341,6 +1372,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FA1941D30D94A70100DD942E /* ConfigRelaunchDebug.xcconfig */;
 			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				SDKROOT = macosx10.6;
 			};
 			name = Debug;
 		};
@@ -1348,6 +1381,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FA1941D40D94A70100DD942E /* ConfigRelaunchRelease.xcconfig */;
 			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				SDKROOT = macosx10.6;
 			};
 			name = Release;
 		};
